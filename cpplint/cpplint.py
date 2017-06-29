@@ -1093,6 +1093,9 @@ class FileInfo(object):
     """
     fullname = self.FullName()
 
+    if _root:
+        return os.path.relpath(fullname, _root)
+
     if os.path.exists(fullname):
       project_dir = os.path.dirname(fullname)
 
